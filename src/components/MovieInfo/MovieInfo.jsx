@@ -1,5 +1,4 @@
 import defaultPoster from '../../images/default_poster.jpg';
-import Skeleton from 'components/Skeleton/Skeleton';
 
 const MovieInfo = ({
   movie: { original_title, poster_path, vote_average, overview, genres },

@@ -19,7 +19,7 @@ const MovieDetails = () => {
     const fetchMovieById = async () => {
       try {
         const movie = await getMovieById(movieId);
-
+        console.log(movie);
         setMovieInfo(movie);
       } catch ({ message }) {
         Notify.info(message);

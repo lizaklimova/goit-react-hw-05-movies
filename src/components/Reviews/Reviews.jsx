@@ -29,14 +29,17 @@ const Reviews = () => {
     fetchReviews();
   }, [movieId]);
   return (
-    <ul>
-      {reviews.map(({ id, author, content }) => (
-        <li key={id}>
-          <p>{author}</p>
-          <p>{content}</p>
-        </li>
-      ))}
-    </ul>
+    <>
+      {loader && <Loader />}
+      <ul>
+        {reviews.map(({ id, author, content }) => (
+          <li key={id}>
+            <p>{author}</p>
+            <p>{content}</p>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
