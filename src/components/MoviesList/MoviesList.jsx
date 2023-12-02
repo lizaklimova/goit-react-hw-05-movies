@@ -1,5 +1,4 @@
 import defaultPoster from '../../images/default_poster.jpg';
-import { Link } from 'react-router-dom';
 import { List, Item, MovieLink } from '../MoviesList/MoviesList.styled';
 
 const MoviesList = ({ movies, location }) => {
