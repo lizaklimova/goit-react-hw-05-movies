@@ -23,3 +23,15 @@ export const getMoviesBySearch = async query => {
 
   return data;
 };
+
+export const getCast = async id => {
+  const { data } = await axios.get(`/3/movie/${id}/credits`);
+
+  return data;
+};
+
+export const getReviews = async id => {
+  const { data } = await axios.get(`3/movie/${id}/reviews`);
+
+  return data;
+};

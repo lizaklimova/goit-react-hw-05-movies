@@ -3,6 +3,8 @@ const SearchMovies = ({ search }) => {
     e.preventDefault();
 
     search(e.target.search.value);
+
+    e.currentTarget.reset();
   };
 
   return (

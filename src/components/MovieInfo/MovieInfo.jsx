@@ -1,4 +1,5 @@
 import defaultPoster from '../../images/default_poster.jpg';
+import Skeleton from 'components/Skeleton/Skeleton';
 
 const MovieInfo = ({
   movie: { original_title, poster_path, vote_average, overview, genres },
@@ -9,6 +10,7 @@ const MovieInfo = ({
   return (
     <>
       <img src={posterSrc} alt="original_title" />
+
       <h3>{original_title}</h3>
       <p>User score: {Math.ceil(Number(vote_average) * 10)}%</p>
       <h4>Overview</h4>
