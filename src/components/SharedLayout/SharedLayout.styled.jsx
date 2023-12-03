@@ -22,6 +22,9 @@ export const Nav = styled.nav`
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 21px;
   color: white;
   transition: color 300ms linear;

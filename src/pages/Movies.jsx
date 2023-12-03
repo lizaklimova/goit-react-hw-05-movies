@@ -42,11 +42,11 @@ const Movies = () => {
   }, [searchParams]);
 
   return (
-    <div>
+    <>
       {loader && <Loader />}
       <SearchMovies search={handleSearch} />
       {movies.length > 0 && <MoviesList movies={movies} location={location} />}
-    </div>
+    </>
   );
 };
 

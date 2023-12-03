@@ -4,6 +4,8 @@ import Loader from 'components/Loader/Loader';
 import { getCast } from 'service/movies-api';
 import actorImage from '../../images/default_cast.jpg';
 import notification from 'helpers/notification';
+import { Container } from 'components/App/App.styled';
+import smoothScroll from 'helpers/smoothScroll';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -23,6 +25,8 @@ const Cast = () => {
         notification(message);
       } finally {
         setLoader(false);
+
+        smoothScroll('castList');
       }
     };
 
@@ -35,9 +39,9 @@ const Cast = () => {
   };
 
   return (
-    <>
+    <Container>
       {loader && <Loader />}
-      <ul>
+      <ul name={'castList'}>
         {cast.map(({ id, name, character, profile_path }) => (
           <li key={id}>
             <img src={showDefaultImage(profile_path, actorImage)} alt={name} />
@@ -46,7 +50,7 @@ const Cast = () => {
           </li>
         ))}
       </ul>
-    </>
+    </Container>
   );
 };
 

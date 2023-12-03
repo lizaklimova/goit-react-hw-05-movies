@@ -1,8 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
+import { IoMdPerson } from 'react-icons/io';
 import { getReviews } from 'service/movies-api';
 import notification from 'helpers/notification';
+import { Container } from 'components/App/App.styled';
+import {
+  ReviewsWrapper,
+  ReviewList,
+  ReviewItem,
+  ReviewAuthor,
+  ReviewContent,
+  NoReviewsMsg,
+} from 'components/Reviews/Reviews.styled';
+import smoothScroll from 'helpers/smoothScroll';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -18,28 +29,41 @@ const Reviews = () => {
         const { results } = await getReviews(movieId);
 
         setReviews(results);
+
         return results;
       } catch ({ message }) {
         notification(message);
       } finally {
         setLoader(false);
+
+        smoothScroll('reviewsWrapper');
       }
     };
 
     fetchReviews();
   }, [movieId]);
+
   return (
-    <>
-      {loader && <Loader />}
-      <ul>
-        {reviews.map(({ id, author, content }) => (
-          <li key={id}>
-            <p>{author}</p>
-            <p>{content}</p>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ReviewsWrapper name="reviewsWrapper">
+      <Container>
+        {loader && <Loader />}
+        {reviews.length > 0 ? (
+          <ReviewList>
+            {reviews.map(({ id, author, content }) => (
+              <ReviewItem key={id}>
+                <ReviewAuthor>
+                  <IoMdPerson />
+                  {author}
+                </ReviewAuthor>
+                <ReviewContent>{content}</ReviewContent>
+              </ReviewItem>
+            ))}
+          </ReviewList>
+        ) : (
+          <NoReviewsMsg>Sorry, no reviews</NoReviewsMsg>
+        )}
+      </Container>
+    </ReviewsWrapper>
   );
 };
 

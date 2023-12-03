@@ -41,7 +41,7 @@ export const Poster = styled.img`
 export const MovieLink = styled(Link)`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 `;
 export const MovieTitle = styled.p`
   max-width: 300px;
@@ -78,4 +78,11 @@ export const VoteAvr = styled.span`
     height: 50px;
     font-size: 16px;
   }
+`;
+
+export const MovieRelease = styled.p`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
 `;

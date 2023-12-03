@@ -1,7 +1,16 @@
-import { Link } from 'react-router-dom';
+import { FaArrowLeftLong } from 'react-icons/fa6';
+import { Container } from 'components/App/App.styled';
+import { GoBackLink } from './GoBackBtn.styled';
 
 const GoBackBtn = ({ path }) => {
-  return <Link to={path}>Go back</Link>;
+  return (
+    <Container>
+      <GoBackLink to={path}>
+        <FaArrowLeftLong />
+        Go back
+      </GoBackLink>
+    </Container>
+  );
 };
 
 export default GoBackBtn;
