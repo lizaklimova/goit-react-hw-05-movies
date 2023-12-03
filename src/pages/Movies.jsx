@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { Notify } from 'notiflix';
 import Loader from 'components/Loader/Loader';
 import MoviesList from 'components/MoviesList/MoviesList';
 import SearchMovies from 'components/SearchMovies/SearchMovies';
 import { getMoviesBySearch } from 'service/movies-api';
+import notification from 'helpers/notification';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,11 +29,11 @@ const Movies = () => {
         setMovies(results);
 
         if (!results.length)
-          Notify.info(`Sorry, no movies found on query ${queryForSearch}`);
+          notification(`Sorry, no movies found on query ${queryForSearch}`);
 
         return results;
       } catch ({ message }) {
-        Notify.info(message);
+        notification(message);
       } finally {
         setLoader(false);
       }

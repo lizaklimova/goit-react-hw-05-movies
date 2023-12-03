@@ -1,4 +1,4 @@
-import defaultPoster from '../../images/default_poster.jpg';
+import defaultPoster from '../../images/default_poster.jpeg';
 
 const MovieInfo = ({
   movie: { original_title, poster_path, vote_average, overview, genres },

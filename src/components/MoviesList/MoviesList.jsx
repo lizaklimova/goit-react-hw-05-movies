@@ -1,25 +1,36 @@
-import defaultPoster from '../../images/default_poster.jpg';
-import { List, Item, MovieLink } from '../MoviesList/MoviesList.styled';
+import defaultPoster from '../../images/default_poster.jpeg';
+import { Container } from 'components/App/App.styled';
+import {
+  List,
+  Item,
+  Poster,
+  MovieLink,
+  MovieTitle,
+  VoteAvr,
+} from '../MoviesList/MoviesList.styled';
 
 const MoviesList = ({ movies, location }) => {
   return (
-    <List>
-      {movies.map(({ id, original_title, poster_path }) => (
-        <Item key={id}>
-          <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-            <img
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w200${poster_path}`
-                  : defaultPoster
-              }
-              alt={original_title}
-            />
-            {original_title}
-          </MovieLink>
-        </Item>
-      ))}
-    </List>
+    <Container>
+      <List>
+        {movies.map(({ id, original_title, poster_path, vote_average }) => (
+          <Item key={id}>
+            <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+              <Poster
+                src={
+                  poster_path
+                    ? `https://image.tmdb.org/t/p/w200${poster_path}`
+                    : defaultPoster
+                }
+                alt={original_title}
+              />
+              <VoteAvr> {Math.ceil(Number(vote_average) * 10)}%</VoteAvr>
+              <MovieTitle>{original_title}</MovieTitle>
+            </MovieLink>
+          </Item>
+        ))}
+      </List>
+    </Container>
   );
 };
 

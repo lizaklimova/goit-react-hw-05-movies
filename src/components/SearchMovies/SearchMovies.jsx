@@ -1,3 +1,6 @@
+import { IoSearchOutline } from 'react-icons/io5';
+import { Container } from 'components/App/App.styled';
+import { SearchForm, SearchInput, SearchBtn } from './SearchMovies.styled';
 const SearchMovies = ({ search }) => {
   const handleSearch = e => {
     e.preventDefault();
@@ -8,10 +11,20 @@ const SearchMovies = ({ search }) => {
   };
 
   return (
-    <form onSubmit={handleSearch}>
-      <input type="text" name="search" required />
-      <button type="submit">Search for movies</button>
-    </form>
+    <Container>
+      <SearchForm onSubmit={handleSearch}>
+        <SearchInput
+          type="text"
+          name="search"
+          placeholder="Search movie"
+          required
+          autoComplete="off"
+        />
+        <SearchBtn type="submit">
+          <IoSearchOutline stroke="#fff" size={25} />
+        </SearchBtn>
+      </SearchForm>
+    </Container>
   );
 };
 

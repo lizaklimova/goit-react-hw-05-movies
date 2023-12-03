@@ -1,14 +1,11 @@
-const { MagnifyingGlass } = require('react-loader-spinner');
+import { RotatingLines } from 'react-loader-spinner';
+import { LoaderBackdrop } from './Loader.styled';
 
-<MagnifyingGlass
-  visible={true}
-  height="80"
-  width="80"
-  ariaLabel="MagnifyingGlass-loading"
-  wrapperStyle={{}}
-  wrapperClass="MagnifyingGlass-wrapper"
-  glassColor="#c0efff"
-  color="#e15b64"
-/>;
-
-export default MagnifyingGlass;
+const Loader = () => {
+  return (
+    <LoaderBackdrop>
+      <RotatingLines />
+    </LoaderBackdrop>
+  );
+};
+export default Loader;

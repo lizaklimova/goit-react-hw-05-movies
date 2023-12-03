@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import { Notify } from 'notiflix';
 import { getMovieById } from 'service/movies-api';
 import Loader from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import GoBackBtn from 'components/GoBackBtn/GoBackBtn';
+import notification from 'helpers/notification';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -19,10 +19,10 @@ const MovieDetails = () => {
     const fetchMovieById = async () => {
       try {
         const movie = await getMovieById(movieId);
-        console.log(movie);
+
         setMovieInfo(movie);
       } catch ({ message }) {
-        Notify.info(message);
+        notification(message);
       } finally {
         setLoader(false);
       }

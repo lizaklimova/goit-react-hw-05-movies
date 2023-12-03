@@ -13,11 +13,16 @@ export const Header = styled.header`
 export const Nav = styled.nav`
   height: 70px;
   display: flex;
-  gap: 30px;
+  gap: 50px;
   align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    gap: 100px;
+  }
 `;
 
 export const StyledNavLink = styled(NavLink)`
+  font-size: 21px;
   color: white;
   transition: color 300ms linear;
   &.active {
@@ -26,7 +31,8 @@ export const StyledNavLink = styled(NavLink)`
     padding: 10px;
   }
 
-  &:hover,
-  &:focus {
+  &:hover:not(.active),
+  &:focus:not(.active) {
+    color: #1cb114;
   }
 `;

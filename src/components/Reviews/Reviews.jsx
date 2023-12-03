@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Notify } from 'notiflix';
 import Loader from 'components/Loader/Loader';
 import { getReviews } from 'service/movies-api';
+import notification from 'helpers/notification';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -20,7 +20,7 @@ const Reviews = () => {
         setReviews(results);
         return results;
       } catch ({ message }) {
-        Notify.info(message);
+        notification(message);
       } finally {
         setLoader(false);
       }
