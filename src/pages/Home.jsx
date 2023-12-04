@@ -28,6 +28,7 @@ const Home = () => {
   return (
     <>
       {loader && <Loader />}
+
       {trendings.length > 0 && <MoviesList movies={trendings} />}
       <ScrollUpBtn />
     </>

@@ -27,11 +27,7 @@ export const Item = styled.li`
 `;
 
 export const Poster = styled.img`
-  width: 300px;
-
-  @media screen and (min-width: 428px) {
-    width: 398px;
-  }
+  width: 250px;
 
   @media screen and (min-width: 768px) {
     width: 200px;
@@ -41,13 +37,16 @@ export const Poster = styled.img`
 export const MovieLink = styled(Link)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
 `;
 export const MovieTitle = styled.p`
   max-width: 300px;
   color: #ffffff;
   font-weight: 700;
-  font-size: 31px;
+  font-size: 25px;
+  text-align: center;
 
   @media screen and (min-width: 428px) {
     max-width: 398px;
@@ -65,19 +64,14 @@ export const VoteAvr = styled.span`
   position: absolute;
   top: -20px;
   right: -5px;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 1px solid #fff;
   background-color: #1cb114;
   font-weight: 600;
   color: #fff;
-  font-size: 25px;
-  @media screen and (min-width: 428px) {
-    width: 50px;
-    height: 50px;
-    font-size: 16px;
-  }
+  font-size: 16px;
 `;
 
 export const MovieRelease = styled.p`
