@@ -16,7 +16,7 @@ import determineReviewColor from 'helpers/determineReviewColor';
 const MoviesList = ({ movies, location }) => {
   return (
     <Container>
-      <List>
+      <List name={'movieList'}>
         {movies.map(
           ({ id, original_title, poster_path, vote_average, release_date }) => (
             <Item key={id}>
@@ -39,10 +39,12 @@ const MoviesList = ({ movies, location }) => {
                   {makePercentage(vote_average)}%
                 </VoteAvr>
                 <MovieTitle>{original_title}</MovieTitle>
-                <MovieRelease>
-                  <CiCalendar />
-                  {release_date}
-                </MovieRelease>
+                {release_date && (
+                  <MovieRelease>
+                    <CiCalendar />
+                    {release_date}
+                  </MovieRelease>
+                )}
               </MovieLink>
             </Item>
           )

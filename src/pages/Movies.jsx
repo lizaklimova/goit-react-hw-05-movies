@@ -7,6 +7,7 @@ import { getMoviesBySearch } from 'service/movies-api';
 import notification from 'helpers/notification';
 import PaginationList from 'components/PaginationList/PaginationList';
 import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
+import smoothScroll from 'helpers/smoothScroll';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +20,8 @@ const Movies = () => {
   const [pageQty, setPageQty] = useState(0);
 
   const handleSearch = value => {
-    setSearchParams({ query: value, pg });
+    setPg(1);
+    setSearchParams({ query: value, page: pg });
   };
 
   useEffect(() => {
@@ -37,19 +39,26 @@ const Movies = () => {
         setMovies(results);
         setPg(page);
         setPageQty(total_pages);
+        setSearchParams({ query: queryForSearch, page: pg });
 
-        if (!results.length)
-          notification(`Sorry, no movies found on query ${queryForSearch}`);
+        if (!results.length) {
+          setSearchParams({});
+          return notification(
+            `Sorry, no movies found on query ${queryForSearch}`
+          );
+        }
 
         return results;
       } catch ({ message }) {
         notification(message);
       } finally {
         setLoader(false);
+
+        smoothScroll('movieList');
       }
     };
     fetchMoviesBySearch();
-  }, [searchParams, pg]);
+  }, [searchParams, pg, setSearchParams]);
 
   return (
     <>
