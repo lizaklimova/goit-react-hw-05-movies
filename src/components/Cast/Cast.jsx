@@ -48,7 +48,7 @@ const Cast = () => {
   };
 
   return (
-    <CastWrapper name={'castList'}>
+    <CastWrapper id={'castList'}>
       <Container>
         {loader && <Loader />}
         {cast.length > 0 ? (

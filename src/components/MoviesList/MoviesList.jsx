@@ -15,7 +15,7 @@ import determineReviewColor from 'helpers/determineReviewColor';
 
 const MoviesList = ({ movies, location }) => {
   return (
-    <div name={'movieList'}>
+    <div id={'movieList'}>
       <Container>
         <List>
           {movies.map(

@@ -14,7 +14,7 @@ export const ReviewList = styled.ul`
 export const ReviewItem = styled.li`
   border: 1px solid #fff;
   border-radius: 20px;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
 `;
 export const ReviewAuthor = styled.p`

@@ -14,6 +14,7 @@ import {
 } from './MovieInfo.styled';
 import makePercentage from 'helpers/makePercentage';
 import determineReviewColor from 'helpers/determineReviewColor';
+import { Container } from 'components/App/App.styled';
 
 const MovieInfo = ({
   movie: {
@@ -32,39 +33,41 @@ const MovieInfo = ({
   const backdropSrc = backdrop_path ? backdropUrl : defaultPoster;
 
   return (
-    <MovieInfoContainer>
-      <InfoSectionWrapper $backdropSrc={backdropSrc}>
-        <Info>
-          <MovieInfoPoster src={posterSrc} alt="original_title" />
-          <MovieDescription>
-            <MovieInfoTitle>{original_title}</MovieInfoTitle>
-            <Line />
-            <ScoreText>
-              User score:
-              <MovieInfoScore
-                color={determineReviewColor(makePercentage(vote_average))}
-              >
-                {makePercentage(vote_average)}%
-              </MovieInfoScore>
-            </ScoreText>
+    <Container>
+      <MovieInfoContainer>
+        <InfoSectionWrapper $backdropSrc={backdropSrc}>
+          <Info>
+            <MovieInfoPoster src={posterSrc} alt="original_title" />
+            <MovieDescription>
+              <MovieInfoTitle>{original_title}</MovieInfoTitle>
+              <Line />
+              <ScoreText>
+                User score:
+                <MovieInfoScore
+                  color={determineReviewColor(makePercentage(vote_average))}
+                >
+                  {makePercentage(vote_average)}%
+                </MovieInfoScore>
+              </ScoreText>
 
-            <SubTitle>Overview</SubTitle>
-            <p>{overview}</p>
+              <SubTitle>Overview</SubTitle>
+              <p>{overview}</p>
 
-            {genres.length > 0 && (
-              <>
-                <SubTitle>Genres</SubTitle>
-                <GenresList>
-                  {genres.map(genre => (
-                    <p key={genre.id}>{genre.name}</p>
-                  ))}
-                </GenresList>
-              </>
-            )}
-          </MovieDescription>
-        </Info>
-      </InfoSectionWrapper>
-    </MovieInfoContainer>
+              {genres.length > 0 && (
+                <>
+                  <SubTitle>Genres</SubTitle>
+                  <GenresList>
+                    {genres.map(genre => (
+                      <p key={genre.id}>{genre.name}</p>
+                    ))}
+                  </GenresList>
+                </>
+              )}
+            </MovieDescription>
+          </Info>
+        </InfoSectionWrapper>
+      </MovieInfoContainer>
+    </Container>
   );
 };
 

@@ -25,22 +25,22 @@ export const Info = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
-  @media screen and (max-width: 458px) {
-    flex-direction: column;
-  }
-  @media screen and (min-width: 428px) {
-    flex-direction: row;
-  }
+  flex-direction: column;
+
   @media screen and (min-width: 768px) {
+    flex-direction: row;
     gap: 50px;
   }
 `;
 export const MovieInfoPoster = styled.img`
   border-radius: 20px;
-  width: 200px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     width: 300px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 400px;
   }
 `;
 export const MovieDescription = styled.div`
@@ -51,14 +51,8 @@ export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 200px;
+  width: 100%;
   min-height: 315px;
-  @media screen and (min-width: 768px) {
-    min-width: 300px;
-  }
-  @media screen and (min-width: 1440px) {
-    min-width: 500px;
-  }
 `;
 export const MovieInfoTitle = styled.h3`
   font-size: 25px;

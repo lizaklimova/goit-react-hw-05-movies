@@ -6,12 +6,16 @@ export const Container = styled.div`
   padding: 0 15px;
   margin: 0 auto;
 
+  @media screen and (min-width: 428px) {
+    max-width: 394px;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 730px;
+    max-width: 734px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 1430px;
+    max-width: 1406px;
   }
 `;
 export const AdLinksWrap = styled.div`
