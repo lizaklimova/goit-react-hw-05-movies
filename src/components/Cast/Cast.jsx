@@ -7,11 +7,13 @@ import notification from 'helpers/notification';
 import { Container } from 'components/App/App.styled';
 import smoothScroll from 'helpers/smoothScroll';
 import {
+  CastWrapper,
   CastList,
   CastItem,
   CastImgWrap,
   CastName,
   CastCharacter,
+  NoCastMsg,
 } from './Cast.styled';
 
 const Cast = () => {
@@ -46,20 +48,26 @@ const Cast = () => {
   };
 
   return (
-    <Container>
-      {loader && <Loader />}
-      <CastList name={'castList'}>
-        {cast.map(({ id, name, character, profile_path }) => (
-          <CastItem key={id}>
-            <CastImgWrap
-              $actor={showDefaultImage(profile_path, actorImage)}
-            ></CastImgWrap>
-            <CastName>{name}</CastName>
-            <CastCharacter>{character}</CastCharacter>
-          </CastItem>
-        ))}
-      </CastList>
-    </Container>
+    <CastWrapper name={'castList'}>
+      <Container>
+        {loader && <Loader />}
+        {cast.length > 0 ? (
+          <CastList>
+            {cast.map(({ id, name, character, profile_path }) => (
+              <CastItem key={id}>
+                <CastImgWrap
+                  $actor={showDefaultImage(profile_path, actorImage)}
+                ></CastImgWrap>
+                <CastName>{name}</CastName>
+                <CastCharacter>{character}</CastCharacter>
+              </CastItem>
+            ))}
+          </CastList>
+        ) : (
+          <NoCastMsg>No information regarding this movie's cast</NoCastMsg>
+        )}
+      </Container>
+    </CastWrapper>
   );
 };
 

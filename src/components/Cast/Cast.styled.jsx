@@ -1,5 +1,9 @@
 import { styled } from 'styled-components';
 
+export const CastWrapper = styled.div`
+  padding: 50px 0;
+`;
+
 export const CastList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -45,4 +49,8 @@ export const CastCharacter = styled.p`
   color: #fff;
   font-style: italic;
   text-align: center;
+`;
+export const NoCastMsg = styled.div`
+  color: #fff;
+  font-size: 20px;
 `;

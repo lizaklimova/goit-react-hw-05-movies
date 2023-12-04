@@ -15,42 +15,50 @@ import determineReviewColor from 'helpers/determineReviewColor';
 
 const MoviesList = ({ movies, location }) => {
   return (
-    <Container>
-      <List name={'movieList'}>
-        {movies.map(
-          ({ id, original_title, poster_path, vote_average, release_date }) => (
-            <Item key={id}>
-              <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-                <Poster
-                  src={
-                    poster_path
-                      ? `https://image.tmdb.org/t/p/w200${poster_path}`
-                      : defaultPoster
-                  }
-                  alt={original_title}
-                />
-                <VoteAvr
-                  style={{
-                    backgroundColor: determineReviewColor(
-                      makePercentage(vote_average)
-                    ),
-                  }}
-                >
-                  {makePercentage(vote_average)}%
-                </VoteAvr>
-                <MovieTitle>{original_title}</MovieTitle>
-                {release_date && (
-                  <MovieRelease>
-                    <CiCalendar />
-                    {release_date}
-                  </MovieRelease>
-                )}
-              </MovieLink>
-            </Item>
-          )
-        )}
-      </List>
-    </Container>
+    <div name={'movieList'}>
+      <Container>
+        <List>
+          {movies.map(
+            ({
+              id,
+              original_title,
+              poster_path,
+              vote_average,
+              release_date,
+            }) => (
+              <Item key={id}>
+                <MovieLink to={`/movies/${id}`} state={{ from: location }}>
+                  <Poster
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w200${poster_path}`
+                        : defaultPoster
+                    }
+                    alt={original_title}
+                  />
+                  <VoteAvr
+                    style={{
+                      backgroundColor: determineReviewColor(
+                        makePercentage(vote_average)
+                      ),
+                    }}
+                  >
+                    {makePercentage(vote_average)}%
+                  </VoteAvr>
+                  <MovieTitle>{original_title}</MovieTitle>
+                  {release_date && (
+                    <MovieRelease>
+                      <CiCalendar />
+                      {release_date}
+                    </MovieRelease>
+                  )}
+                </MovieLink>
+              </Item>
+            )
+          )}
+        </List>
+      </Container>
+    </div>
   );
 };
 

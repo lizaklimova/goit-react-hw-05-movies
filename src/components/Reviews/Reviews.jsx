@@ -10,7 +10,6 @@ import {
   ReviewList,
   ReviewItem,
   ReviewAuthor,
-  ReviewContent,
   NoReviewsMsg,
 } from 'components/Reviews/Reviews.styled';
 import smoothScroll from 'helpers/smoothScroll';
@@ -55,7 +54,7 @@ const Reviews = () => {
                   <IoMdPerson />
                   {author}
                 </ReviewAuthor>
-                <ReviewContent>{content}</ReviewContent>
+                <p>{content}</p>
               </ReviewItem>
             ))}
           </ReviewList>

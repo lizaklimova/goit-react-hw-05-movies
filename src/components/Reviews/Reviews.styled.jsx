@@ -25,9 +25,8 @@ export const ReviewAuthor = styled.p`
   gap: 5px;
   margin-bottom: 10px;
 `;
-export const ReviewContent = styled.p``;
+
 export const NoReviewsMsg = styled.div`
   color: #fff;
-
   font-size: 20px;
 `;

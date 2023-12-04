@@ -2,14 +2,16 @@ import { Pagination } from '@mui/material';
 import { Container } from 'components/App/App.styled';
 
 const PaginationList = ({ pageQty, pg, onChange }) => {
+  const handlePaginationChange = (_, num) => {
+    onChange(num);
+  };
+
   return (
     <Container>
       <Pagination
         count={pageQty}
         page={pg}
-        onChange={(_, num) => {
-          onChange(num);
-        }}
+        onChange={handlePaginationChange}
         color={'success'}
         sx={{
           color: '#fff',
