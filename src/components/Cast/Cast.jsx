@@ -52,7 +52,7 @@ const Cast = () => {
         {cast.map(({ id, name, character, profile_path }) => (
           <CastItem key={id}>
             <CastImgWrap
-              actor={showDefaultImage(profile_path, actorImage)}
+              $actor={showDefaultImage(profile_path, actorImage)}
             ></CastImgWrap>
             <CastName>{name}</CastName>
             <CastCharacter>{character}</CastCharacter>

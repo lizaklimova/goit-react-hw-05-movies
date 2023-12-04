@@ -33,7 +33,7 @@ const MovieInfo = ({
 
   return (
     <MovieInfoContainer>
-      <InfoSectionWrapper backdrop={backdropSrc}>
+      <InfoSectionWrapper $backdropSrc={backdropSrc}>
         <Info>
           <MovieInfoPoster src={posterSrc} alt="original_title" />
           <MovieDescription>

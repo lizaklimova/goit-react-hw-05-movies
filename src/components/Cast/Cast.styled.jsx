@@ -27,7 +27,7 @@ export const CastImgWrap = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: url(${props => props.actor}) no-repeat 0px -25px / cover;
+  background: url(${props => props.$actor}) no-repeat 0px -25px / cover;
   background-color: #1cb114;
 
   @media screen and (min-width: 1440px) {

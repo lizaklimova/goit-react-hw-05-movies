@@ -18,8 +18,10 @@ export const getMovieById = async id => {
   return data;
 };
 
-export const getMoviesBySearch = async query => {
-  const { data } = await axios.get(`/3/search/movie?query=${query}`);
+export const getMoviesBySearch = async (query, page) => {
+  const { data } = await axios.get(
+    `/3/search/movie?query=${query}&page=${page}`
+  );
 
   return data;
 };

@@ -15,7 +15,7 @@ export const InfoSectionWrapper = styled.div`
     bottom: 0;
     background: linear-gradient(rgba(4, 4, 4, 0.4), rgba(4, 4, 4, 0.4))
         no-repeat center/cover,
-      url(${props => props.backdrop}) no-repeat center/cover;
+      url(${props => props.$backdropSrc}) no-repeat center/cover;
     filter: blur(15px);
     z-index: -1;
   }
