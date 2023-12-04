@@ -5,6 +5,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import SearchMovies from 'components/SearchMovies/SearchMovies';
 import { getMoviesBySearch } from 'service/movies-api';
 import notification from 'helpers/notification';
+import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -46,6 +47,7 @@ const Movies = () => {
       {loader && <Loader />}
       <SearchMovies search={handleSearch} />
       {movies.length > 0 && <MoviesList movies={movies} location={location} />}
+      <ScrollUpBtn />
     </>
   );
 };

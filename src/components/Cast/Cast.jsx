@@ -2,10 +2,17 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import { getCast } from 'service/movies-api';
-import actorImage from '../../images/default_cast.jpg';
+import actorImage from '../../images/default_cast.png';
 import notification from 'helpers/notification';
 import { Container } from 'components/App/App.styled';
 import smoothScroll from 'helpers/smoothScroll';
+import {
+  CastList,
+  CastItem,
+  CastImgWrap,
+  CastName,
+  CastCharacter,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -41,15 +48,17 @@ const Cast = () => {
   return (
     <Container>
       {loader && <Loader />}
-      <ul name={'castList'}>
+      <CastList name={'castList'}>
         {cast.map(({ id, name, character, profile_path }) => (
-          <li key={id}>
-            <img src={showDefaultImage(profile_path, actorImage)} alt={name} />
-            <p>{name}</p>
-            <p>{character}</p>
-          </li>
+          <CastItem key={id}>
+            <CastImgWrap
+              actor={showDefaultImage(profile_path, actorImage)}
+            ></CastImgWrap>
+            <CastName>{name}</CastName>
+            <CastCharacter>{character}</CastCharacter>
+          </CastItem>
         ))}
-      </ul>
+      </CastList>
     </Container>
   );
 };

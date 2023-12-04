@@ -13,11 +13,9 @@ export const InfoSectionWrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(4, 4, 4, 0.4), rgba(4, 4, 4, 0.4)),
-      url(${props => props.img});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: linear-gradient(rgba(4, 4, 4, 0.4), rgba(4, 4, 4, 0.4))
+        no-repeat center/cover,
+      url(${props => props.backdrop}) no-repeat center/cover;
     filter: blur(15px);
     z-index: -1;
   }
@@ -54,6 +52,7 @@ export const MovieDescription = styled.div`
   flex-direction: column;
   gap: 10px;
   width: 200px;
+  min-height: 315px;
   @media screen and (min-width: 768px) {
     min-width: 300px;
   }
@@ -86,13 +85,13 @@ export const SubTitle = styled.h4`
   font-size: 20px;
   font-style: italic;
 `;
-export const OverviewText = styled.p``;
+
 export const GenresList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 `;
-export const Genre = styled.li``;
+
 export const Line = styled.hr`
   width: 100%;
 

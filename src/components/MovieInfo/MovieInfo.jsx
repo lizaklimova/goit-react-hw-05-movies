@@ -10,9 +10,7 @@ import {
   ScoreText,
   MovieInfoScore,
   SubTitle,
-  OverviewText,
   GenresList,
-  Genre,
 } from './MovieInfo.styled';
 import makePercentage from 'helpers/makePercentage';
 import determineReviewColor from 'helpers/determineReviewColor';
@@ -35,7 +33,7 @@ const MovieInfo = ({
 
   return (
     <MovieInfoContainer>
-      <InfoSectionWrapper img={backdropSrc}>
+      <InfoSectionWrapper backdrop={backdropSrc}>
         <Info>
           <MovieInfoPoster src={posterSrc} alt="original_title" />
           <MovieDescription>
@@ -51,14 +49,14 @@ const MovieInfo = ({
             </ScoreText>
 
             <SubTitle>Overview</SubTitle>
-            <OverviewText>{overview}</OverviewText>
+            <p>{overview}</p>
 
             {genres.length > 0 && (
               <>
                 <SubTitle>Genres</SubTitle>
                 <GenresList>
                   {genres.map(genre => (
-                    <Genre key={genre.id}>{genre.name}</Genre>
+                    <p key={genre.id}>{genre.name}</p>
                   ))}
                 </GenresList>
               </>
