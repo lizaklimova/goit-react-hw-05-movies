@@ -49,6 +49,9 @@ export const SearchBtn = styled.button`
   cursor: pointer;
   background-color: #1cb114;
   transition: opacity 350ms linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover,
   &:focus {

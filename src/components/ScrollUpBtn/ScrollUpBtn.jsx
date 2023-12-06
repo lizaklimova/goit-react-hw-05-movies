@@ -35,7 +35,7 @@ const ScrollUpBtn = () => {
       onClick={scrollToTop}
       style={{ display: isVisible ? 'block' : 'none' }}
     >
-      <FaArrowUpLong size={45} fill="#fff" />
+      <FaArrowUpLong size={35} fill="#fff" />
     </ScrollUpButton>
   );
 };
