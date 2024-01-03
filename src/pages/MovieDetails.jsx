@@ -1,17 +1,18 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import { getMovieById } from 'service/movies-api';
 import Loader from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
 import GoBackBtn from 'components/GoBackBtn/GoBackBtn';
-import notification from 'helpers/notification';
-import { Container, AdLinksWrap, AdLink } from 'components/App/App.styled';
 import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
+import notification from 'helpers/notification';
+import { getMovieById, getTrailer } from 'service/movies-api';
+import { Container, AdLinksWrap, AdLink } from 'components/App/App.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const [movieInfo, setMovieInfo] = useState(null);
+  const [trailerUrl, setTrailerUrl] = useState(null);
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
@@ -21,7 +22,9 @@ const MovieDetails = () => {
     const fetchMovieById = async () => {
       try {
         const movie = await getMovieById(movieId);
+        const trailer = await getTrailer(movieId);
 
+        !trailer ? setTrailerUrl(null) : setTrailerUrl(trailer.key);
         setMovieInfo(movie);
       } catch ({ message }) {
         notification(message);
@@ -38,7 +41,7 @@ const MovieDetails = () => {
     <Container>
       {loader && <Loader />}
       <GoBackBtn path={goBackPath} />
-      {movieInfo && <MovieInfo movie={movieInfo} />}
+      {movieInfo && <MovieInfo movie={movieInfo} trailer={trailerUrl} />}
       <AdLinksWrap>
         <AdLink to="cast">Cast</AdLink>
         <AdLink to="reviews">Reviews</AdLink>

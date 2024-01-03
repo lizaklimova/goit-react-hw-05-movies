@@ -4,6 +4,7 @@ import MoviesList from 'components/MoviesList/MoviesList';
 import Loader from 'components/Loader/Loader';
 import notification from 'helpers/notification';
 import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
+import { Container } from 'components/App/App.styled';
 
 const Home = () => {
   const [trendings, setTrendings] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
     const fetchTrendings = async () => {
       try {
         const response = await getTrending();
+
         setTrendings(response);
       } catch ({ message }) {
         notification(message);
@@ -28,7 +30,11 @@ const Home = () => {
   return (
     <>
       {loader && <Loader />}
-
+      <Container>
+        <h1 style={{ color: '#fff', marginTop: '30px' }}>
+          Top-20 trending movies
+        </h1>
+      </Container>
       {trendings.length > 0 && <MoviesList movies={trendings} />}
       <ScrollUpBtn />
     </>

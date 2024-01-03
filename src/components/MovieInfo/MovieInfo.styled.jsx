@@ -2,9 +2,12 @@ import { styled } from 'styled-components';
 
 export const MovieInfoContainer = styled.div`
   padding: 60px 0;
+  min-height: 500px;
 `;
+
 export const InfoSectionWrapper = styled.div`
   position: relative;
+  min-height: 500px;
 
   &::before {
     content: '';
@@ -20,6 +23,7 @@ export const InfoSectionWrapper = styled.div`
     z-index: -1;
   }
 `;
+
 export const Info = styled.div`
   display: flex;
   align-items: center;
@@ -32,9 +36,10 @@ export const Info = styled.div`
     gap: 50px;
   }
 `;
+
 export const MovieInfoPoster = styled.img`
-  border-radius: 20px;
   width: 100%;
+  border-radius: 20px;
 
   @media screen and (min-width: 768px) {
     width: 300px;
@@ -43,35 +48,40 @@ export const MovieInfoPoster = styled.img`
     width: 400px;
   }
 `;
+
 export const MovieDescription = styled.div`
-  padding: 10px;
-  background-color: #d2d5d378;
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   width: 100%;
   min-height: 315px;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: ${({ theme }) => theme.colors.grey};
+  backdrop-filter: blur(15px);
 `;
+
 export const MovieInfoTitle = styled.h3`
   font-size: 25px;
+
   @media screen and (min-width: 768px) {
     font-size: 40px;
   }
 `;
+
 export const ScoreText = styled.p`
   display: flex;
   align-items: center;
   gap: 5px;
 `;
+
 export const MovieInfoScore = styled.span`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   background-color: ${props => props.color};
 `;
 
@@ -88,6 +98,25 @@ export const GenresList = styled.ul`
 
 export const Line = styled.hr`
   width: 100%;
+  border-color: ${({ theme }) => theme.colors.black};
+`;
 
-  border-color: #000;
+export const TrailerWrap = styled.div`
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  iframe {
+    border: none;
+    border-radius: 30px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 900px;
+  }
 `;

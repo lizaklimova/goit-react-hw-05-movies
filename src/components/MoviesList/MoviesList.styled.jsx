@@ -2,15 +2,16 @@ import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const List = styled.ul`
-  padding: 60px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
+  padding: 60px 0;
 `;
+
 export const Item = styled.li`
   position: relative;
-  transition: transform 350ms linear;
+  transition: ${({ theme }) => `transform ${theme.transitions.linear}`};
 
   &:hover,
   &:focus {
@@ -34,6 +35,7 @@ export const Poster = styled.img`
     height: 300px;
   }
 `;
+
 export const MovieLink = styled(Link)`
   display: flex;
   flex-direction: column;
@@ -41,16 +43,18 @@ export const MovieLink = styled(Link)`
   align-items: center;
   gap: 20px;
 `;
+
 export const MovieTitle = styled.p`
-  max-width: 300px;
-  color: #ffffff;
   font-weight: 700;
   font-size: 25px;
   text-align: center;
+  max-width: 300px;
+  color: ${({ theme }) => theme.colors.white};
 
   @media screen and (min-width: 428px) {
     max-width: 398px;
   }
+
   @media screen and (min-width: 768px) {
     max-width: 200px;
     font-size: 21px;
@@ -58,25 +62,26 @@ export const MovieTitle = styled.p`
 `;
 
 export const VoteAvr = styled.span`
+  font-size: 16px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -20px;
-  right: -5px;
+  top: -10px;
+  right: -10px;
   width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid #fff;
-  background-color: #1cb114;
-  font-weight: 600;
-  color: #fff;
-  font-size: 16px;
+  height: 25px;
+  border-radius: 30px;
+  border: ${({ theme }) => `1px solid ${theme.colors.white}`};
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.accentGreen};
+  box-shadow: ${({ theme }) => theme.shadows.vote};
 `;
 
 export const MovieRelease = styled.p`
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.white};
 `;

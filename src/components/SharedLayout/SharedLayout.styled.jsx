@@ -4,18 +4,19 @@ import { NavLink } from 'react-router-dom';
 export const Header = styled.header`
   width: 100vw;
   height: 70px;
-  background-color: #000000c5;
+  border-bottom: ${({ theme }) => `1px solid ${theme.colors.white}`};
+  background-color: ${({ theme }) => theme.colors.black};
   backdrop-filter: blur(10px);
   opacity: 0.8;
-  border-bottom: 1px solid white;
 `;
 
 export const Nav = styled.nav`
-  height: 70px;
   display: flex;
   gap: 50px;
   align-items: center;
   justify-content: center;
+  height: 70px;
+
   @media screen and (min-width: 768px) {
     gap: 100px;
   }
@@ -26,16 +27,17 @@ export const StyledNavLink = styled(NavLink)`
   align-items: center;
   gap: 5px;
   font-size: 21px;
-  color: white;
-  transition: color 300ms linear;
+  color: ${({ theme }) => theme.colors.white};
+  transition: ${({ theme }) => `color ${theme.transitions.linear}`};
+
   &.active {
-    background-color: #1cb114;
     border-radius: 20px;
     padding: 10px;
+    background-color: ${({ theme }) => theme.colors.accentGreen};
   }
 
   &:hover:not(.active),
   &:focus:not(.active) {
-    color: #1cb114;
+    color: ${({ theme }) => theme.colors.accentGreen};
   }
 `;

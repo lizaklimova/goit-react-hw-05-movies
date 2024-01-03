@@ -1,6 +1,6 @@
-import { FaArrowUpLong } from 'react-icons/fa6';
-import { ScrollUpButton } from './ScrollUpBtn.styled';
 import { useEffect, useState } from 'react';
+import { IoIosArrowUp } from 'react-icons/io';
+import { ScrollUpButton } from './ScrollUpBtn.styled';
 
 const ScrollUpBtn = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,7 +35,7 @@ const ScrollUpBtn = () => {
       onClick={scrollToTop}
       style={{ display: isVisible ? 'block' : 'none' }}
     >
-      <FaArrowUpLong size={35} fill="#fff" />
+      <IoIosArrowUp size={55} fill="#fff" />
     </ScrollUpButton>
   );
 };

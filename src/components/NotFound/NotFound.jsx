@@ -1,10 +1,11 @@
+import { useLocation } from 'react-router-dom';
 import { TbFaceIdError } from 'react-icons/tb';
 import {
   NotFoundWrapper,
   NotFoundMsg,
   GoMainPageLink,
 } from './NotFound.styled';
-import { useLocation } from 'react-router-dom';
+
 const NotFound = () => {
   const { pathname } = useLocation();
 

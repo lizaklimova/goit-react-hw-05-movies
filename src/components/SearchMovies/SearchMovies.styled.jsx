@@ -8,24 +8,35 @@ export const SearchForm = styled.form`
   padding-top: 60px;
 `;
 
+export const SearchInputWrapper = styled.div`
+  position: relative;
+
+  & :is(input:focus, input:valid) ~ label {
+    color: ${({ theme }) => theme.colors.accentGreen};
+    transform: translateY(-20px);
+  }
+`;
+
 export const SearchInput = styled.input`
   width: 200px;
   padding: 10px;
   border-radius: 20px;
-  color: #fff;
-  border: 2px solid #fff;
+  color: ${({ theme }) => theme.colors.white};
+  border: ${({ theme }) => `2px solid ${theme.colors.white}`};
   background-color: transparent;
+
+  &:-webkit-autofill {
+    box-shadow: 0 0 0 1000px black inset;
+  }
 
   &:focus {
     outline: none;
   }
-  &:focus + label {
-    top: -25%;
-    color: #1cb114;
-  }
+
   @media screen and (min-width: 428px) {
     width: 250px;
   }
+
   @media screen and (min-width: 768px) {
     width: 350px;
   }
@@ -35,28 +46,31 @@ export const SearchInputLabel = styled.label`
   position: absolute;
   top: 25%;
   left: 5%;
-  background-color: #000000;
-  color: #ffffff8f;
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.grey};
   width: 105px;
   text-align: center;
-  transition: all 150ms linear;
+  transition: ${({ theme }) => `all ${theme.transitions.linear}`};
+  cursor: text;
 `;
+
 export const SearchBtn = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
+  background-color: ${({ theme }) => theme.colors.accentGreen};
   cursor: pointer;
-  background-color: #1cb114;
-  transition: opacity 350ms linear;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: ${({ theme }) => `opacity ${theme.transitions.linear}`};
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    opacity: 0.7;
   }
+
   @media screen and (min-width: 428px) {
     width: 50px;
     height: 50px;

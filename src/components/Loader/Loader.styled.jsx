@@ -5,10 +5,10 @@ export const LoaderBackdrop = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0e9c3145;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: ${({ theme }) => theme.colors.greenBackdrop};
 `;

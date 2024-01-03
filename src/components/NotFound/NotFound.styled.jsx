@@ -19,23 +19,26 @@ export const NotFoundMsg = styled.div`
   justify-content: center;
   gap: 5px;
   font-size: 20px;
-  color: #fff;
   text-align: center;
+  color: ${({ theme }) => theme.colors.white};
+
   @media screen and (min-width: 768px) {
     font-size: 30px;
   }
 `;
 
 export const GoMainPageLink = styled(Link)`
-  color: #fff;
-  padding: 10px;
-  border: 1px solid #fff;
-  border-radius: 20px;
   font-weight: 600;
-  transition: color 350ms linear, border-color 350ms linear;
+  border: ${({ theme }) => `1px solid ${theme.colors.white}`};
+  border-radius: 20px;
+  padding: 10px;
+  color: ${({ theme }) => theme.colors.white};
+  transition: ${({ theme }) =>
+    `color ${theme.transitions.linear}, border-color ${theme.transitions.linear}`};
+
   &:hover,
   &:focus {
-    color: #1cb114;
-    border-color: #1cb114;
+    color: ${({ theme }) => theme.colors.accentGreen};
+    border-color: ${({ theme }) => theme.colors.accentGreen};
   }
 `;
