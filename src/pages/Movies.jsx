@@ -53,8 +53,7 @@ const Movies = () => {
         notification(message);
       } finally {
         setLoader(false);
-
-        smoothScroll('movieList');
+        smoothScroll('moviesList');
       }
     };
     fetchMoviesBySearch();

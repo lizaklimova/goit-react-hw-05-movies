@@ -1,4 +1,7 @@
-import defaultPoster from '../../images/default_poster.jpeg';
+import defaultPoster from 'assets/images/default_poster.jpeg';
+import makePercentage from 'helpers/makePercentage';
+import determineReviewColor from 'helpers/determineReviewColor';
+import { Container } from 'components/App/App.styled';
 import {
   MovieInfoContainer,
   InfoSectionWrapper,
@@ -11,10 +14,8 @@ import {
   MovieInfoScore,
   SubTitle,
   GenresList,
+  TrailerWrap,
 } from './MovieInfo.styled';
-import makePercentage from 'helpers/makePercentage';
-import determineReviewColor from 'helpers/determineReviewColor';
-import { Container } from 'components/App/App.styled';
 
 const MovieInfo = ({
   movie: {
@@ -25,6 +26,7 @@ const MovieInfo = ({
     overview,
     genres,
   },
+  trailer,
 }) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${poster_path}`;
   const posterSrc = poster_path ? posterUrl : defaultPoster;
@@ -67,6 +69,18 @@ const MovieInfo = ({
           </Info>
         </InfoSectionWrapper>
       </MovieInfoContainer>
+      {trailer && (
+        <TrailerWrap>
+          <iframe
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${trailer}`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; "
+            allowFullScreen
+          ></iframe>
+        </TrailerWrap>
+      )}
     </Container>
   );
 };

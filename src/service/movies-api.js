@@ -37,3 +37,9 @@ export const getReviews = async id => {
 
   return data;
 };
+
+export const getTrailer = async id => {
+  const { data } = await axios.get(`3/movie/${id}/videos`);
+
+  return data.results.filter(v => v.name === 'Official Trailer')[0];
+};

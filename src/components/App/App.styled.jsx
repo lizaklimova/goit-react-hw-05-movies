@@ -18,6 +18,7 @@ export const Container = styled.div`
     max-width: 1406px;
   }
 `;
+
 export const AdLinksWrap = styled.div`
   display: flex;
   align-items: center;
@@ -25,20 +26,24 @@ export const AdLinksWrap = styled.div`
   gap: 10px;
   padding-bottom: 60px;
 `;
+
 export const AdLink = styled(NavLink)`
-  color: #fff;
   font-size: 20px;
-  border: 2px solid #fff;
+  border: ${({ theme }) => `2px solid ${theme.colors.white}`};
   border-radius: 20px;
   padding: 10px;
-  transition: color 350ms linear, border-color 350ms linear;
-  &:active {
-    color: #1cb114;
-    border-color: #1cb114;
+  color: ${({ theme }) => theme.colors.white};
+  transition: ${({ theme }) =>
+    `color ${theme.transitions.linear}, border-color ${theme.transitions.linear}`};
+
+  &.active {
+    color: ${({ theme }) => theme.colors.accentGreen};
+    border-color: ${({ theme }) => theme.colors.accentGreen};
   }
+
   &:hover,
   &:focus {
-    color: #1cb114;
-    border-color: #1cb114;
+    color: ${({ theme }) => theme.colors.accentGreen};
+    border-color: ${({ theme }) => theme.colors.accentGreen};
   }
 `;

@@ -43,7 +43,7 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <ReviewsWrapper id="reviewsWrapper">
+    <ReviewsWrapper name="reviewsWrapper">
       <Container>
         {loader && <Loader />}
         {reviews.length > 0 ? (

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from 'components/Loader/Loader';
+import actorImage from 'assets/images/default_cast.png';
 import { getCast } from 'service/movies-api';
-import actorImage from '../../images/default_cast.png';
 import notification from 'helpers/notification';
-import { Container } from 'components/App/App.styled';
 import smoothScroll from 'helpers/smoothScroll';
+import Loader from 'components/Loader';
+import { Container } from 'components/App/App.styled';
 import {
   CastWrapper,
   CastList,
@@ -48,12 +48,12 @@ const Cast = () => {
   };
 
   return (
-    <CastWrapper id={'castList'}>
+    <CastWrapper name="castList">
       <Container>
         {loader && <Loader />}
         {cast.length > 0 ? (
           <CastList>
-            {cast.map(({ id, name, character, profile_path }) => (
+            {cast.slice(0, 9).map(({ id, name, character, profile_path }) => (
               <CastItem key={id}>
                 <CastImgWrap
                   $actor={showDefaultImage(profile_path, actorImage)}

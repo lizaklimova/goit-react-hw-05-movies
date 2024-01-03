@@ -4,13 +4,13 @@ export const ScrollUpButton = styled.button`
   position: fixed;
   bottom: 40px;
   right: 37px;
-  background-color: #0dcb2d70;
-  border: 3px solid #fff;
+  width: 70px;
+  height: 70px;
+  border: ${({ theme }) => `3px solid ${theme.colors.white}`};
   border-radius: 50%;
-  width: 90px;
-  height: 90px;
+  background-color: ${({ theme }) => theme.colors.greenBackdrop};
   cursor: pointer;
-  transition: transform 300ms linear;
+  transition: ${({ theme }) => `transform ${theme.transitions.linear}`};
 
   &:hover,
   &:focus {
@@ -18,7 +18,7 @@ export const ScrollUpButton = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 `;
