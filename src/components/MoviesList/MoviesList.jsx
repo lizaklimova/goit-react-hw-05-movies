@@ -31,7 +31,7 @@ const MoviesList = ({ movies, location }) => {
                   <Poster
                     src={
                       poster_path
-                        ? `https://image.tmdb.org/t/p/w200${poster_path}`
+                        ? `https://image.tmdb.org/t/p/w1280${poster_path}`
                         : defaultPoster
                     }
                     alt={original_title}

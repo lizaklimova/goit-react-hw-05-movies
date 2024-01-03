@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { getTrending } from 'service/movies-api';
-import MoviesList from 'components/MoviesList/MoviesList';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
+import Slider from 'components/Slider';
+import MoviesList from 'components/MoviesList';
 import notification from 'helpers/notification';
-import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
+import ScrollUpBtn from 'components/ScrollUpBtn';
 import { Container } from 'components/App/App.styled';
+import { MainTitleWrap, TitleIcon, MainTitle } from 'components/App/App.styled';
 
 const Home = () => {
   const [trendings, setTrendings] = useState([]);
@@ -30,10 +32,12 @@ const Home = () => {
   return (
     <>
       {loader && <Loader />}
+      {trendings.length > 0 && <Slider trendings={trendings} />}
       <Container>
-        <h1 style={{ color: '#fff', marginTop: '30px' }}>
-          Top-20 trending movies
-        </h1>
+        <MainTitleWrap>
+          <TitleIcon />
+          <MainTitle>Top-20 trending movies</MainTitle>
+        </MainTitleWrap>
       </Container>
       {trendings.length > 0 && <MoviesList movies={trendings} />}
       <ScrollUpBtn />

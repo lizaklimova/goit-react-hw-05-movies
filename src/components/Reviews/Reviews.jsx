@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from 'components/Loader/Loader';
+import Loader from 'components/Loader';
 import { IoMdPerson } from 'react-icons/io';
 import { getReviews } from 'service/movies-api';
 import notification from 'helpers/notification';
