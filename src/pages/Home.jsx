@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { getTrending } from 'service/movies-api';
 import Loader from 'components/Loader';
 import Slider from 'components/Slider';
-import MoviesList from 'components/MoviesList';
 import notification from 'helpers/notification';
 import ScrollUpBtn from 'components/ScrollUpBtn';
 import { Container } from 'components/App/App.styled';
 import { MainTitleWrap, TitleIcon, MainTitle } from 'components/App/App.styled';
+import { List } from 'components/App/App.styled';
+import Skeleton from 'components/Skeleton/MoviesListSkeleton';
+import MovieItem from 'components/MovieItem/MovieItem';
+import SliderSkeleton from 'components/Skeleton/SliderSkeleton';
 
 const Home = () => {
   const [trendings, setTrendings] = useState([]);
@@ -32,14 +35,28 @@ const Home = () => {
   return (
     <>
       {loader && <Loader />}
-      {trendings.length > 0 && <Slider trendings={trendings} />}
+
+      {loader ? <SliderSkeleton /> : <Slider trendings={trendings} />}
+
       <Container>
         <MainTitleWrap>
           <TitleIcon />
           <MainTitle>Top-20 trending movies</MainTitle>
         </MainTitleWrap>
+
+        <div name="moviesList">
+          <Container>
+            <List>
+              {loader
+                ? [...new Array(20)].map((_, i) => <Skeleton key={i} />)
+                : trendings.map(movie => (
+                    <MovieItem key={movie.id} movie={movie} />
+                  ))}
+            </List>
+          </Container>
+        </div>
       </Container>
-      {trendings.length > 0 && <MoviesList movies={trendings} />}
+
       <ScrollUpBtn />
     </>
   );

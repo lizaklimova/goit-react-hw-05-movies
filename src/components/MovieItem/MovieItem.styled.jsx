@@ -1,13 +1,5 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-export const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 60px 0;
-`;
 
 export const Item = styled.li`
   position: relative;

@@ -4,6 +4,9 @@ export const ScrollUpButton = styled.button`
   position: fixed;
   bottom: 40px;
   right: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 70px;
   height: 70px;
   border: ${({ theme }) => `3px solid ${theme.colors.white}`};

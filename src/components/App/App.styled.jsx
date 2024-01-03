@@ -89,3 +89,11 @@ export const MainTitle = styled.h1`
     font-size: 45px;
   }
 `;
+
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 0;
+`;

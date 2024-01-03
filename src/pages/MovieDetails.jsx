@@ -6,6 +6,7 @@ import Loader from 'components/Loader';
 import MovieInfo from 'components/MovieInfo';
 import GoBackBtn from 'components/GoBackBtn';
 import ScrollUpBtn from 'components/ScrollUpBtn';
+import InfoSkeleton from 'components/Skeleton/MovieInfoSkeleton';
 import { Container, AdLinksWrap, AdLink } from 'components/App/App.styled';
 
 const MovieDetails = () => {
@@ -41,7 +42,12 @@ const MovieDetails = () => {
     <Container>
       {loader && <Loader />}
       <GoBackBtn path={goBackPath} />
-      {movieInfo && <MovieInfo movie={movieInfo} trailer={trailerUrl} />}
+
+      {loader ? (
+        <InfoSkeleton />
+      ) : (
+        movieInfo && <MovieInfo movie={movieInfo} trailer={trailerUrl} />
+      )}
       <AdLinksWrap>
         <AdLink to="cast">Cast</AdLink>
         <AdLink to="reviews">Reviews</AdLink>

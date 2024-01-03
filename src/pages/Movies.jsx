@@ -4,10 +4,13 @@ import { getMoviesBySearch } from 'service/movies-api';
 import smoothScroll from 'helpers/smoothScroll';
 import notification from 'helpers/notification';
 import Loader from 'components/Loader';
-import MoviesList from 'components/MoviesList';
 import SearchMovies from 'components/SearchMovies';
 import PaginationList from 'components/PaginationList';
 import ScrollUpBtn from 'components/ScrollUpBtn';
+import Skeleton from 'components/Skeleton/MoviesListSkeleton';
+import MovieItem from 'components/MovieItem';
+import { Container } from 'components/App/App.styled';
+import { List } from 'components/App/App.styled';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -68,8 +71,17 @@ const Movies = () => {
         <PaginationList pageQty={pageQty} pg={pg} onChange={setPg} />
       )}
 
-      {movies.length > 0 && <MoviesList movies={movies} location={location} />}
-
+      <Container>
+        <div name="moviesList">
+          <List>
+            {loader
+              ? [...new Array(20)].map((_, i) => <Skeleton key={i} />)
+              : movies.map(movie => (
+                  <MovieItem key={movie.id} movie={movie} location={location} />
+                ))}
+          </List>
+        </div>
+      </Container>
       <ScrollUpBtn />
     </>
   );
