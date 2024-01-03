@@ -76,12 +76,13 @@ export const ScoreText = styled.p`
 `;
 
 export const MovieInfoScore = styled.span`
+  font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 45px;
+  height: 30px;
+  border-radius: 30px;
   background-color: ${props => props.color};
 `;
 

@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { BiCameraMovie } from 'react-icons/bi';
 
 export const Container = styled.div`
   width: 100%;
@@ -45,5 +46,46 @@ export const AdLink = styled(NavLink)`
   &:focus {
     color: ${({ theme }) => theme.colors.accentGreen};
     border-color: ${({ theme }) => theme.colors.accentGreen};
+  }
+`;
+
+export const MainTitleWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 50px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
+
+export const TitleIcon = styled(BiCameraMovie)`
+  width: 20px;
+  height: 20px;
+  fill: ${({ theme }) => theme.colors.white};
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+export const MainTitle = styled.h1`
+  font-size: 25px;
+  color: ${({ theme }) => theme.colors.white};
+
+  @media screen and (min-width: 768px) {
+    font-size: 35px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    font-size: 45px;
   }
 `;

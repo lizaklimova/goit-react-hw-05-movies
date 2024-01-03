@@ -1,11 +1,11 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
-import Loader from 'components/Loader/Loader';
-import MovieInfo from 'components/MovieInfo/MovieInfo';
-import GoBackBtn from 'components/GoBackBtn/GoBackBtn';
-import ScrollUpBtn from 'components/ScrollUpBtn/ScrollUpBtn';
 import notification from 'helpers/notification';
 import { getMovieById, getTrailer } from 'service/movies-api';
+import Loader from 'components/Loader';
+import MovieInfo from 'components/MovieInfo';
+import GoBackBtn from 'components/GoBackBtn';
+import ScrollUpBtn from 'components/ScrollUpBtn';
 import { Container, AdLinksWrap, AdLink } from 'components/App/App.styled';
 
 const MovieDetails = () => {

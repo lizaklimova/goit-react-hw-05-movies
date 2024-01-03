@@ -59,9 +59,13 @@ const MovieInfo = ({
                 <>
                   <SubTitle>Genres</SubTitle>
                   <GenresList>
-                    {genres.map(genre => (
-                      <p key={genre.id}>{genre.name}</p>
-                    ))}
+                    {genres.map((genre, i) => {
+                      const genresList =
+                        genres.length - 1 === i
+                          ? genre.name
+                          : genre.name + ' ● ';
+                      return <p key={genre.id}>{genresList}</p>;
+                    })}
                   </GenresList>
                 </>
               )}
